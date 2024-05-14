@@ -47,5 +47,7 @@ class UserLoginView(SuccessMessageMixin, LoginView):
 class UserLogoutView(LogoutView):
     """
     Выход с сайта
+
     """
-    # next_page = 'home'
+    next_page = 'index'
+

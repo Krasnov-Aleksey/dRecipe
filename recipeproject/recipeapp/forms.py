@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
-
 class UserRegisterForm(UserCreationForm):
     """
     Переопределенная форма регистрации пользователей
@@ -15,5 +14,3 @@ class UserRegisterForm(UserCreationForm):
 
 class UserLoginForm(AuthenticationForm):
     pass
-
-

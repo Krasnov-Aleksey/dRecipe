@@ -1,4 +1,9 @@
 {% extends 'recipeapp/base.html' %}
 {% block content %}
+{% if user.is_authenticated %}
+<h2>Профиль пользователя {{ user.username }}</h2>
+{% endif %}
 <p>10 случайных рецептов</p>
+
+
 {% endblock %}

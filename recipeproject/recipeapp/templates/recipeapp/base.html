@@ -8,16 +8,21 @@
 <body>
 <header>
     <a href="{% url 'index' %}">Главная</a>
+
+    {% if user.is_authenticated %}
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button> Выход</button>
+    </form>
+    {% else %}
     <a href="{% url 'register' %}">Регистрация</a>
     <a href="{% url 'login' %}">Вход</a>
-    <a href="{% url 'login' %}">Выход</a>
+    {% endif %}
 </header>
 <div>
     {% block content %}
     <p>Site</p>
     {% endblock %}
 </div>
-
-
 </body>
 </html>
