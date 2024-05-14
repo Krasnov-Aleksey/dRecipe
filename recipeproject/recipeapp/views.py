@@ -1,12 +1,51 @@
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 from django.views.generic.base import TemplateView
+from .forms import UserRegisterForm, UserLoginForm
 
-
-def index(request):
-    return HttpResponse('Рецепты')
 
 class Index(TemplateView):
-    template_name = 'recipeapp/base.html'
+    template_name = 'recipeapp/index.html'
 
 
+class UserRegisterView(SuccessMessageMixin, CreateView):
+    """
+    Представление регистрации на сайте с формой регистрации
+    """
+    form_class = UserRegisterForm
+    success_url = reverse_lazy('index')
+    template_name = 'recipeapp/user_register.html'
+
+    # success_message = 'Вы успешно зарегистрировались. Можете войти на сайт!'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Регистрация на сайте'
+        return context
+
+
+class UserLoginView(SuccessMessageMixin, LoginView):
+    """
+    Авторизация на сайте
+    """
+    form_class = UserLoginForm
+    template_name = 'recipeapp/user_login.html'
+    next_page = 'index'
+
+    # success_message = 'Добро пожаловать на сайт!'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Авторизация на сайте'
+        return context
+
+
+class UserLogoutView(LogoutView):
+    """
+    Выход с сайта
+    """
+    # next_page = 'home'

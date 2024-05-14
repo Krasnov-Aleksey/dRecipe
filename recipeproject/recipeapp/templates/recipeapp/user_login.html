@@ -1,0 +1,12 @@
+{% extends 'recipeapp/base.html' %}
+{% block content %}
+
+<h4>Авторизация на сайте</h4>
+
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Авторизоваться</button>
+</form>
+
+{% endblock %}

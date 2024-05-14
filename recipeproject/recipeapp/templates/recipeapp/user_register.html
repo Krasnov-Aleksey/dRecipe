@@ -1,0 +1,10 @@
+{% extends 'recipeapp/base.html' %}
+{% block content %}
+<h4>Регистрация на сайте</h4>
+<form method="post" action="{% url 'register' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Зарегистрироваться</button>
+</form>
+
+{% endblock %}

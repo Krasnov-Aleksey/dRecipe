@@ -6,6 +6,18 @@
     <title>{% block title %} Главная {% endblock %} - Рецепты</title>
 </head>
 <body>
-<a href="{% url 'index' %}">Главная</a>
+<header>
+    <a href="{% url 'index' %}">Главная</a>
+    <a href="{% url 'register' %}">Регистрация</a>
+    <a href="{% url 'login' %}">Вход</a>
+    <a href="{% url 'login' %}">Выход</a>
+</header>
+<div>
+    {% block content %}
+    <p>Site</p>
+    {% endblock %}
+</div>
+
+
 </body>
 </html>
