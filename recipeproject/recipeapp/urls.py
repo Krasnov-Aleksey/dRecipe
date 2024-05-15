@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import Index, UserRegisterView, UserLoginView, UserLogoutView
+from .views import Index, UserRegisterView, UserLoginView, UserLogoutView, CategoryView
+from .views import AddCategoryView, AddRecipeView,UpdateRecipeView, ListRecipeView
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
@@ -7,5 +8,9 @@ urlpatterns = [
     path('register/', UserRegisterView.as_view(), name='register'),
     path('login/', UserLoginView.as_view(), name='login'),
     path('logout/', UserLogoutView.as_view(), name='logout'),
-    # path('logout/', LogoutView.as_view(next_page='index'), name='logout'),
+    path('list_category/', CategoryView.as_view(), name='list_category'),
+    path('add_category/', AddCategoryView.as_view(), name='add_category'),
+    path('add_recipe/', AddRecipeView.as_view(), name='add_recipe'),
+    path('update_recipe/', UpdateRecipeView.as_view(), name='update_recipe'),
+    path('list_recipe/', ListRecipeView.as_view(), name='list_recipe'),
 ]

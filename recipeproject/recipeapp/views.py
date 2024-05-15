@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.views.generic.base import TemplateView
-from .forms import UserRegisterForm, UserLoginForm
+from .forms import UserRegisterForm, UserLoginForm, CategoryForm
 
 
 class Index(TemplateView):
@@ -51,3 +51,32 @@ class UserLogoutView(LogoutView):
     """
     next_page = 'index'
 
+
+class CategoryView(TemplateView):
+    # form_class = CategoryForm
+    template_name = 'recipeapp/list_category.html'
+    # next_page = 'index'
+
+
+class AddCategoryView(TemplateView):
+    # form_class = CategoryForm
+    template_name = 'recipeapp/add_category.html'
+    # next_page = 'index'
+
+
+class AddRecipeView(TemplateView):
+    # form_class = CategoryForm
+    template_name = 'recipeapp/add_recipe.html'
+    # next_page = 'index'
+
+
+class UpdateRecipeView(TemplateView):
+    # form_class = CategoryForm
+    template_name = 'recipeapp/update_recipe.html'
+    # next_page = 'index'
+
+
+class ListRecipeView(TemplateView):
+    # form_class = CategoryForm
+    template_name = 'recipeapp/list_recipe.html'
+    # next_page = 'index'
