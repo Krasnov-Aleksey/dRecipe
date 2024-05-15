@@ -7,7 +7,9 @@ from django.views.generic import CreateView
 from django.views.generic.base import TemplateView
 from .forms import UserRegisterForm, UserLoginForm, CategoryForm, RecipesForm
 from django.forms import ModelForm
-
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+from .models import Category,Recipes
 
 class Index(TemplateView):
     template_name = 'recipeapp/index.html'
@@ -57,10 +59,13 @@ class UserLogoutView(LogoutView):
     next_page = 'index'
 
 
-class CategoryView(TemplateView):
-    # form_class = CategoryForm
+class CategoryView(ListView):
     template_name = 'recipeapp/list_category.html'
-    # next_page = 'index'
+    model = Category
+    context = Category.objects.all()
+
+
+
 
 
 class AddCategoryView(CreateView):
@@ -81,7 +86,10 @@ class UpdateRecipeView(TemplateView):
     # next_page = 'index'
 
 
-class ListRecipeView(TemplateView):
-    # form_class = CategoryForm
+class ListRecipeView(ListView):
     template_name = 'recipeapp/list_recipe.html'
-    # next_page = 'index'
+    model = Recipes
+    context = Recipes.objects.all()
+
+
+

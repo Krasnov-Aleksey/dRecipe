@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from .views import Index, UserRegisterView, UserLoginView, UserLogoutView, CategoryView
 from .views import AddCategoryView, AddRecipeView,UpdateRecipeView, ListRecipeView
 from .views import Success
@@ -16,3 +18,5 @@ urlpatterns = [
     path('list_recipe/', ListRecipeView.as_view(), name='list_recipe'),
     path('success/', Success.as_view(), name='success'),
 ]
+urlpatterns += (static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+                + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))

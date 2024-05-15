@@ -1,4 +1,7 @@
 {% extends 'recipeapp/base.html' %}
 {% block content %}
-<p>Список категории рецептов</p>
+<h2>Список категории рецептов</h2>
+{% for name_category in object_list %}
+    <p>{{ name_category }}</p>
+{% endfor %}
 {% endblock %}
