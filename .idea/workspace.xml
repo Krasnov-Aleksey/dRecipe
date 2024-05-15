@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c53ac3a5-d7fc-492a-9a8b-ba39c32cd516" name="Changes" comment="" />
+    <list default="true" id="c53ac3a5-d7fc-492a-9a8b-ba39c32cd516" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipeproject/recipeapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipeproject/recipeapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipeproject/recipeapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipeproject/recipeapp/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +38,7 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "b1start",
+    "git-widget-placeholder": "b1b5",
     "last_opened_file_path": "C:/Users/user/PycharmProjects/dRecipe/recipeproject/recipeapp/templates/recipeapp",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }

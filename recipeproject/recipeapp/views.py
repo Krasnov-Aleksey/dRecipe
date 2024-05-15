@@ -5,11 +5,16 @@ from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.views.generic.base import TemplateView
-from .forms import UserRegisterForm, UserLoginForm, CategoryForm
+from .forms import UserRegisterForm, UserLoginForm, CategoryForm, RecipesForm
+from django.forms import ModelForm
 
 
 class Index(TemplateView):
     template_name = 'recipeapp/index.html'
+
+
+class Success(TemplateView):
+    template_name = 'recipeapp/success.html'
 
 
 class UserRegisterView(SuccessMessageMixin, CreateView):
@@ -58,16 +63,16 @@ class CategoryView(TemplateView):
     # next_page = 'index'
 
 
-class AddCategoryView(TemplateView):
-    # form_class = CategoryForm
+class AddCategoryView(CreateView):
+    form_class = CategoryForm
     template_name = 'recipeapp/add_category.html'
-    # next_page = 'index'
+    success_url = reverse_lazy('success')
 
 
-class AddRecipeView(TemplateView):
-    # form_class = CategoryForm
+class AddRecipeView(CreateView):
+    form_class = RecipesForm
     template_name = 'recipeapp/add_recipe.html'
-    # next_page = 'index'
+    success_url = reverse_lazy('success')
 
 
 class UpdateRecipeView(TemplateView):
