@@ -26,4 +26,13 @@ class CategoryForm(forms.ModelForm):
 class RecipesForm(forms.ModelForm):
     class Meta:
         model = Recipes
+        # name_recipe = forms.CharField(max_length=150, disabled=True)
         fields = '__all__'
+        # geeks_field = forms.CharField(disabled=True)
+        # exclude = ('author_recipe',)
+        # widgets = {'author_recipe': forms.HiddenInput}
+
+
+
+
+

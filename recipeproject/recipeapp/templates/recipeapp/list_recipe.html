@@ -1,7 +1,7 @@
 {% extends 'recipeapp/base.html' %}
 {% block content %}
 <h2>Список рецептов</h2>
-{% for recipe in object_list %}
+{% for recipe in recipes %}
 <p>{{ recipe.name_recipe }}</p>
 <img src="{{ recipe.image_recipe.url }}" alt="{{ recipe.name_recipe }}" width="100">
 {% endfor %}

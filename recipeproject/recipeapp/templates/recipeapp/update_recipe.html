@@ -1,7 +1,7 @@
 {% extends 'recipeapp/base.html' %}
 {% block content %}
 <p>Редактировать рецепт</p>
-<form action="{% url 'update_recipe' %}" method="post">
+<form action="{% url 'update_recipe' %}" method="post"  enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Редактировать</button>
