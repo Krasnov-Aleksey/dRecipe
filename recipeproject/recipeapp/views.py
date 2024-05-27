@@ -12,6 +12,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from .models import Category, Recipes
 from django.contrib.auth.models import User
+from random import choice
 
 
 # TODO delete
@@ -22,7 +23,17 @@ class Index(TemplateView):
 
 def index(request):
     recipes = Recipes.objects.all()
-    return render(request, 'recipeapp/index.html', {'recipes': recipes})
+    recipe_list = []
+    recipe_rnd = []
+    for item in recipes:
+        recipe_list.append(item)
+
+    for _ in range(5):
+        rnd = choice(recipe_list)
+        recipe_rnd.append(rnd)
+        index_rnd = recipe_list.index(rnd)
+        recipe_list.pop(index_rnd)
+    return render(request, 'recipeapp/index.html', {'recipes': recipe_rnd})
 
 
 class Success(TemplateView):

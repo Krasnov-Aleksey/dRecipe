@@ -10,8 +10,7 @@
     <a href="{% url 'index' %}">Главная</a>
     <a href="{% url 'recipe_category' %}">Список категорий рецептов</a>
     {% if user.is_authenticated %}
-    <a href="{% url 'list_recipe' %}">Ваши рецептов </a>
-<!--    <a href="{% url 'add_category' %}">Добавить категорию</a>-->
+    <a href="{% url 'list_recipe' %}">Ваши рецепты </a>
     <a href="{% url 'add_recipe_m' %}">Добавить рецепт</a>
     <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
