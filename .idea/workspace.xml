@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c53ac3a5-d7fc-492a-9a8b-ba39c32cd516" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/add_recipe_m.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/recipe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/recipe_category.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/recipe_in_category.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/recipe_read.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipeproject/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/recipeproject/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipeproject/recipe.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/recipeproject/recipe.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipeproject/recipeapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipeproject/recipeapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/add_recipe.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/add_recipe_m.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/add_recipe_m.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/list_category.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/list_category.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/list_recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/list_recipe.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/update_recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipeproject/recipeapp/templates/recipeapp/update_recipe.html" afterDir="false" />

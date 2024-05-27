@@ -3,7 +3,10 @@
 {% if user.is_authenticated %}
 <h2>Профиль пользователя {{ user.username }}</h2>
 {% endif %}
-<p>10 случайных рецептов</p>
+{% for recipe in recipes %}
+<p>{{ recipe.name_recipe }}</p>
+<img src="{{ recipe.image_recipe.url }}" alt="{{ recipe.name_recipe }}" width="100">
+{% endfor %}
 
 
 {% endblock %}

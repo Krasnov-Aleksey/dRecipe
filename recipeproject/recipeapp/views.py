@@ -14,9 +14,15 @@ from .models import Category, Recipes
 from django.contrib.auth.models import User
 
 
+# TODO delete
 class Index(TemplateView):
     # Главная страница
     template_name = 'recipeapp/index.html'
+
+
+def index(request):
+    recipes = Recipes.objects.all()
+    return render(request, 'recipeapp/index.html', {'recipes': recipes})
 
 
 class Success(TemplateView):
@@ -32,8 +38,6 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('index')
     template_name = 'recipeapp/user_register.html'
 
-    # success_message = 'Вы успешно зарегистрировались. Можете войти на сайт!'
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Регистрация на сайте'
@@ -48,8 +52,6 @@ class UserLoginView(SuccessMessageMixin, LoginView):
     template_name = 'recipeapp/user_login.html'
     next_page = 'index'
 
-    # success_message = 'Добро пожаловать на сайт!'
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Авторизация на сайте'
@@ -59,7 +61,6 @@ class UserLoginView(SuccessMessageMixin, LoginView):
 class UserLogoutView(LogoutView):
     """
     Выход с сайта
-
     """
     next_page = 'index'
 
@@ -77,18 +78,7 @@ class AddCategoryView(CreateView):
     success_url = reverse_lazy('success')
 
 
-class AddRecipeView(CreateView):
-    form_class = RecipesForm
-    template_name = 'recipeapp/add_recipe.html'
-    success_url = reverse_lazy('success')
-
-
-def sample_view(request):
-    current_user = request.user
-
-
-# @login_required
-def add_recipe_view_m(request, pk=1):
+def add_recipe_view_m(request):
     current_user = request.user
     if request.method == 'POST':
         form = RecipesForm(request.POST, request.FILES, initial={
@@ -99,28 +89,16 @@ def add_recipe_view_m(request, pk=1):
     else:
         form = RecipesForm(initial={"author_recipe": current_user})
 
-    return render(request, 'recipeapp/add_recipe_m.html', {'form': form,
-                                                           'current_user': current_user})
+    return render(request, 'recipeapp/add_recipe_m.html',
+                  {'form': form, 'current_user': current_user})
 
 
-class UpdateRecipeView(UpdateView):
-    model = Recipes
-    template_name = 'recipeapp/update_recipe.html'
-    context_object_name = 'recipes'
-    form_class = RecipesForm
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = f'Обновление статьи: {self.object.title}'
-        return context
-
-
-def update_recipe(request, pk=2):
-    recipe = Recipes.objects.get(pk=pk)
+def update_recipe(request, recipe_id=2):
+    recipe = Recipes.objects.get(pk=recipe_id)
     if request.method == 'POST':
         form = RecipesForm(request.POST, request.FILES, instance=recipe)
         if form.is_valid():
-            # form.save()
+            form.save()
             return render(request, 'recipeapp/success.html')
 
     else:
@@ -129,8 +107,34 @@ def update_recipe(request, pk=2):
         return render(request, 'recipeapp/update_recipe.html', context)
 
 
+# TODO delete
 class ListRecipeView(ListView):
     template_name = 'recipeapp/list_recipe.html'
     model = Recipes
     context_object_name = 'recipes'
-    # context = Recipes.objects.all()
+
+
+def list_recipe(request):
+    current_user = request.user
+    recipes = Recipes.objects.filter(author_recipe=current_user)
+    return render(request, 'recipeapp/list_recipe.html', {'recipes': recipes})
+
+
+def recipe(request, recipe_id):
+    recipe = Recipes.objects.get(pk=recipe_id)
+    return render(request, 'recipeapp/recipe.html', {'recipe': recipe})
+
+
+def recipe_category(request):
+    categorys = Category.objects.all()
+    return render(request, 'recipeapp/recipe_category.html', {'categorys': categorys})
+
+
+def recipe_in_category(request, category_id):
+    recipes = Recipes.objects.filter(recipes_category=category_id)
+    return render(request, 'recipeapp/recipe_in_category.html', {'recipes': recipes})
+
+
+def recipe_read(request, recipe_id=2):
+    recipe = Recipes.objects.get(pk=recipe_id)
+    return render(request, 'recipeapp/recipe_read.html', {'recipe': recipe})

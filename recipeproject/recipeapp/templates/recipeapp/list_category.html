@@ -2,6 +2,6 @@
 {% block content %}
 <h2>Список категории рецептов</h2>
 {% for name_category in category %}
-    <p>{{ name_category }}</p>
+    <a href="{% url 'recipe_category' %}">{{ name_category }}</a>
 {% endfor %}
 {% endblock %}
