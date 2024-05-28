@@ -1,7 +1,0 @@
-{% extends 'recipeapp/base.html' %}
-{% block content %}
-<h1>Список рецептов по категориям</h1>
-{% for recipe in recipes %}
-<a href="{% url 'recipe_read' recipe.id %}">{{ recipe.name_recipe }}</a>
-{% endfor %}
-{% endblock %}
