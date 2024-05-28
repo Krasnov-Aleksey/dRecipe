@@ -2,10 +2,6 @@
 {% block content %}
 <h1>Список рецептов по категориям</h1>
 {% for recipe in recipes %}
-<ul class="nav flex-column">
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'recipe_read' recipe.id %}">{{ recipe.name_recipe }}</a>
-  </li>
-</ul>
+<a href="{% url 'recipe_read' recipe.id %}">{{ recipe.name_recipe }}</a>
 {% endfor %}
 {% endblock %}

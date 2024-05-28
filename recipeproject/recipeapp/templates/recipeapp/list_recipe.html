@@ -2,7 +2,14 @@
 {% block content %}
 <h2>Список рецептов</h2>
 {% for recipe in recipes %}
-<a href="{% url 'recipe' recipe.id %}">{{ recipe.name_recipe }}</a><br>
-<img src="{{ recipe.image_recipe.url }}" alt="{{ recipe.name_recipe }}" width="100"><br>
+<div class="card" style="width: 18rem;">
+  <img src="{{ recipe.image_recipe.url }}" class="card-img-top" alt="{{ recipe.name_recipe }}">
+  <div class="card-body">
+    <h5 class="card-title">{{ recipe.name_recipe }}</h5>
+  </div>
+  <div class="card-body">
+    <a href="{% url 'recipe' recipe.id %}" class="card-link">Посмотреть рецепт</a>
+  </div>
+</div>
 {% endfor %}
 {% endblock %}

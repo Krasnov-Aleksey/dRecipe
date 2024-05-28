@@ -1,15 +1,23 @@
 {% extends 'recipeapp/base.html' %}
 {% block content %}
-<h2>Просмотр рецепта</h2>
-<p>{{ recipe.id }}</p>
-<p>{{ recipe.name_recipe }}</p>
-<p>{{ recipe.description_recipe }}</p>
-<p>{{ recipe.cooking_steps}}</p>
-<p>{{ recipe.cooking_time }}</p>
-<img src="{{ recipe.image_recipe.url }}" alt="{{ recipe.name_recipe }}" width="100">
-<p>{{ recipe.author_recipe }}</p>
-<p>{{ recipe.recipes_category }}</p>
-{% if user.is_authenticated %}
-<a href="{% url 'update_recipe' recipe.id %} ">Редактировать</a><br>
-{% endif %}
+<div class="card card border-primary mb-3" style="width: 18rem;">
+    <img src="{{ recipe.image_recipe.url }}" class="card-img-top" alt="{{ recipe.name_recipe }}">
+    <div class="card-body">
+        <h5 class="card-title">{{ recipe.name_recipe }}</h5>
+        <h6>Описание рецепта</h6>
+        <p class="card-text">{{ recipe.description_recipe }}</p>
+        <h6>Шаги приготовления</h6>
+        <p class="card-text">{{ recipe.cooking_steps}}</p>
+        <h6>Время приготовления</h6>
+        <p class="card-text">{{ recipe.cooking_time }}</p>
+    </div>
+    {% if user.is_authenticated %}
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'update_recipe' recipe.id %}">Редактировать</a>
+        </li>
+    </ul>
+    {% endif %}
+</div>
+
 {% endblock %}

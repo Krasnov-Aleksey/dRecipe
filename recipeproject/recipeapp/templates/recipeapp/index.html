@@ -1,12 +1,16 @@
 {% extends 'recipeapp/base.html' %}
 {% block content %}
 {% if user.is_authenticated %}
-<h2>Профиль пользователя {{ user.username }}</h2>
+<h2>Здравствуйте {{ user.username }}</h2>
 {% endif %}
-{% for recipe in recipes %}
-<p>{{ recipe.name_recipe }}</p>
-<img src="{{ recipe.image_recipe.url }}" alt="{{ recipe.name_recipe }}" width="100">
-{% endfor %}
-
-
+<div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for recipe in recipes %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ recipe.image_recipe.url }}" class="card-img-top" alt="{{ recipe.name_recipe }}">
+            <div class="card-body">
+                <p class="card-text">{{ recipe.name_recipe }}</p>
+            </div>
+        </div>
+        {% endfor %}
+</div>
 {% endblock %}
